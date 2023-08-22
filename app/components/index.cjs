@@ -16,13 +16,6 @@ app.use(cors());
 app.post("/chat", async (req, res) => {
   const { prompt } = req.body;
 
-  // const completion = await openai.completions({
-  //   model: "text-davinci-003",
-  //   max_tokens: 512,
-  //   temperature: 0,
-  //   prompt: prompt,
-  // });
-
   const completion = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: prompt,
@@ -40,16 +33,3 @@ app.listen(port, () => {
 
 
 
-
-// const HandleSubmit = (e) => {
-//   e.preventDefault();
-
-//   axios
-//     .post("http://localhost:5000/chat", { prompt })
-//     .then((res) => {
-//       setResponse(res.data);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
